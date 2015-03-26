@@ -1,0 +1,22 @@
+{
+  "name": "facadu",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Kiougar/facadu",
+  "authors": [
+    "Georgios Tzourmpakis <kiougar@gmail.com>"
+  ],
+  "description": "Family Calendar Educational Project",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "angular-material": "~0.8.3"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "facadu",
+  "version": "1.0.0",
+  "description": "Family Calendar Educational Project",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kiougar/facadu.git"
+  },
+  "author": "Georgios Tzourmpakis <kiougar@gmail.com>",
+  "contributors": [
+    "George Delis <gdelis1989@gmail.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kiougar/facadu/issues"
+  },
+  "homepage": "https://github.com/Kiougar/facadu",
+  "devDependencies": {
+    "bower": "^1.3.12"
+  }
+}
