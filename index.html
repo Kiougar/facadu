@@ -1,0 +1,55 @@
+<html lang="en" ng-app="FacaduApp">
+  <head>
+    <base href="/index.html" />
+    <link type="text/css" rel="stylesheet" href="static/bower_components/angular-material/angular-material.min.css">
+    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <link type="text/css" rel="stylesheet" href="static/css/style.css">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+
+  </head>
+  <body layout="row" ng-controller="AppCtrl" ng-cloak>
+    <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="isArrowToggled()">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <a href="/"><md-icon md-svg-src="menu"></md-icon></a>
+                <span flex></span>
+                <h2><span>Facadu</span></h2>
+                <span flex></span>
+            </div>
+        </md-toolbar>
+        <md-content>
+            <md-button ng-repeat="menu in menuItems" ng-href="{{menu.url}}">
+                {{ menu.label }}
+            </md-button>
+        </md-content>
+    </md-sidenav>
+    <div layout="column" flex>
+        <md-toolbar layout="row">
+            <div class="md-toolbar-tools">
+                <md-button ng-click="toggleSidenav('left')" ng-class="{'toggled': isArrowToggled()}" class="md-icon-button toggle-sidenav" aria-label="Menu">
+                    <md-icon md-svg-src="tabs-arrow"></md-icon>
+                </md-button>
+                <span flex></span>
+                <h1><span>Hello World</span></h1>
+                <span flex></span>
+                <md-button class="md-icon-button" aria-label="More">
+                    <md-icon md-svg-src="tabs-arrow"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <div layout="column" layout-padding flex id="content">
+            <div ng-include="paths.templates + 'toolbar.html'"></div>
+            <div layout-padding ng-view></div>
+        </div>
+    </div>
+    <!-- Angular Material Dependencies -->
+    <script type="text/javascript" src="static/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="static/bower_components/angular-animate/angular-animate.min.js"></script>
+    <script type="text/javascript" src="static/bower_components/angular-aria/angular-aria.min.js"></script>
+    <script type="text/javascript" src="static/bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="static/bower_components/angular-material/angular-material.min.js"></script>
+    <!-- Application JS file -->
+    <script type="text/javascript" src="static/javascripts/facadu.js"></script>
+    <script type="text/javascript" src="static/javascripts/facaduDirectives.js"></script>
+  </body>
+</html>

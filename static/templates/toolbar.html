@@ -1,0 +1,13 @@
+<div ng-switch on="currentMenu.url">
+    <div class="animate-switch" ng-switch-when="/fc">
+        <md-toolbar class="md-accent">
+            <div class="md-toolbar-tools">Calendar tools</div>
+        </md-toolbar>
+    </div>
+    <div class="animate-switch" ng-switch-when="/pc">
+        <md-toolbar class="md-accent">
+            <div class="md-toolbar-tools">Personal Calendar tools!</div>
+        </md-toolbar>
+    </div>
+    <div class="animate-switch" ng-switch-default>Default toolbar</div>
+</div>

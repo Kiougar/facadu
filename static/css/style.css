@@ -1,13 +1,7 @@
-.menuBtn {
-  background-color: transparent;
-  border: none;
-  height: 38px;
-  margin: 16px 0 0 16px;
-  width: 36px;
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
 }
-md-toolbar h1 {
-  font-weight: normal;
-}
+
 md-list .md-button {
   color: inherit;
   font-weight: 500;
@@ -15,9 +9,220 @@ md-list .md-button {
   width: 100%;
 }
 
-/* Using Data-URI converted from svg until <md-icon> becomes available
-https://github.com/google/material-design-icons
-*/
-.menuBtn {
-  background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIyNHB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDI0IDI0IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGcgaWQ9IkhlYWRlciI+CiAgICA8Zz4KICAgICAgICA8cmVjdCB4PSItNjE4IiB5PSItMjIzMiIgZmlsbD0ibm9uZSIgd2lkdGg9IjE0MDAiIGhlaWdodD0iMzYwMCIvPgogICAgPC9nPgo8L2c+CjxnIGlkPSJMYWJlbCI+CjwvZz4KPGcgaWQ9Ikljb24iPgogICAgPGc+CiAgICAgICAgPHJlY3QgZmlsbD0ibm9uZSIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ii8+CiAgICAgICAgPHBhdGggZD0iTTMsMThoMTh2LTJIM1YxOHogTTMsMTNoMTh2LTJIM1YxM3ogTTMsNnYyaDE4VjZIM3oiIHN0eWxlPSJmaWxsOiNmM2YzZjM7Ii8+CiAgICA8L2c+CjwvZz4KPGcgaWQ9IkdyaWQiIGRpc3BsYXk9Im5vbmUiPgogICAgPGcgZGlzcGxheT0iaW5saW5lIj4KICAgIDwvZz4KPC9nPgo8L3N2Zz4=) no-repeat  center center;
+/* backdrop fix */
+md-backdrop, .md-dialog-container { position: fixed !important;}
+
+.toggle-sidenav md-icon{
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+    -webkit-transition: transform 0.3s ease-in-out;
+    -moz-transition: transform 0.3s ease-in-out;
+    -o-transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
 }
+
+.toggle-sidenav.toggled md-icon{
+    -webkit-transform: rotate(00deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+.md-sidenav-left .md-button {
+    border-radius: 0;
+    color: inherit;
+    cursor: pointer;
+    display: block;
+    line-height: 40px;
+    margin: 0;
+    max-height: 40px;
+    overflow: hidden;
+    padding: 0 16px;
+    text-align: left;
+    text-decoration: none;
+    white-space: normal;
+    width: 100%;
+}
+
+.close-x {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAMAAABhq6zVAAAAG1BMVEUAAAD///////////////////8zMzNAQEBLS0sh4kNVAAAACXRSTlMAETNEZpm7zN1OK1a4AAAAQUlEQVR4AVWOWwoAIQwD03fvf+LdKAj5CTNE2yK60wBYdlNo5L6ZfvL2U/Nez+7OYcDrl3JAG/kj02SPXGARZBA+rJgCGvG46dwAAAAASUVORK5CYII=) no-repeat;
+    cursor: pointer;
+    height: 13px;
+    width: 13px;
+}
+
+.cal-row {
+    width: 100%;
+}
+
+.cal-row:before, .cal-row:after {
+    display: table;
+    content: "";
+    line-height: 0;
+}
+
+.cal-row:after {
+    clear: both;
+}
+
+.cal-row:hover {
+    background-color: #fafafa;
+}
+
+.cal-cell {
+    min-height: 1px;
+    box-sizing: border-box;
+}
+
+.cal-cell:hover {
+    background-color: #ededed;
+}
+
+.cal-row .cal-cell {
+    width: 14.28%;
+    display: block;
+    float: left;
+    margin-left: 0;
+}
+
+.cal-row-head .cal-cell {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bolder;
+    text-align: center;
+    border: 0;
+    padding: 5px 0;
+}
+
+.cal-month-container {
+    border-top: 1px solid #e1e1e1;
+    border-left: 1px solid #e1e1e1;
+    border-radius: 2px;
+}
+
+.cal-month-container .cal-row {
+    border-bottom: 1px solid #e1e1e1;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.cal-month-container .cal-cell {
+    min-height: 100px;
+    border-right: 1px solid #e1e1e1;
+    position: relative;
+}
+
+.cal-month-day {
+    height: 100px;
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.cal-cell .day-label {
+    float: right;
+    font-size: 1.2em;
+    font-weight: 400;
+    opacity: .7;
+    margin-top: 15px;
+    margin-right: 15px;
+}
+
+.cal-cell .md-button.day-events-num {
+    margin-left: 10px;
+    margin-top: 18px;
+    min-height: 0;
+    width: auto;
+    height: auto;
+    display: inline-block;
+    float: left;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 10px;
+}
+
+.event-list-container {
+    max-height: 47px;
+    padding-left: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.cal-cell .md-button.event-list-item {
+    cursor: pointer;
+    display: block;
+    float: left;
+    width: 12px;
+    height: 12px;
+    min-height: 0;
+    margin: 0 2px 2px 0;
+    box-shadow: inset 0 0 2px 0 rgba(0,0,0,.2);
+    border-radius: 8px;
+    border: 1px solid #fff;
+}
+
+/** Calendar bubble styles */
+#cal-bubble {
+    position: absolute;
+    z-index: 1001;
+    width: auto;
+    max-width: 40%;
+    background-color: #fff;
+}
+.bubble-main {
+    padding: 16px 28px;
+    position: relative;
+}
+.bubble-main .close-x {
+    right: 16px;
+    top: 16px;
+    position: absolute;
+}
+.top-prong, .bottom-prong {
+    position: absolute;
+    height: 9px;
+    width: 18px;
+    overflow: hidden;
+}
+.prong-dk, .prong-lt {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.bottom-prong {
+    bottom: -9px;
+}
+.bottom-prong .prong-dk, .bottom-prong .prong-lt {
+    border-bottom-width: 0;
+}
+.top-prong {
+    top: -9px;
+}
+.top-prong .prong-dk, .top-prong .prong-lt {
+    border-top-width: 0;
+}
+.top-prong .prong-lt {
+    top: 1px;
+}
+.prong-dk {
+    border: 9px solid;
+    border-color: #ccc transparent;
+}
+.prong-lt {
+    border: 8px solid;
+    border-color: #fff transparent;
+    left: 1px;
+}
+/* end of calendar bubble styles */

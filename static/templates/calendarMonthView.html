@@ -1,0 +1,22 @@
+<div class="cal-row cal-row-head">
+    <div class="cal-cell" ng-repeat="day in weekDays">{{day}}</div>
+</div>
+<div class="cal-month-container">
+    <div ng-repeat="week in monthWeeks">
+        <div class="cal-row cal-row-body">
+            <div ng-repeat="day in week.days" class="cal-cell">
+                <div class="cal-month-day" ng-click="clickedDay($event, day)">
+                    <md-button ng-click="clickedEventBadge($event, day)" class="day-events-num md-fab md-accent" ng-hide="day.events.length === 0">
+                        {{day.events.length}}
+                    </md-button>
+                    <span class="day-label">{{day.label}}</span>
+                    <div class="event-list-container">
+                        <md-button ng-repeat="event in day.events" class="event-list-item md-fab md-primary" aria-label="event">
+                            <md-tooltip md-direction="top">{{event.title}}</md-tooltip>
+                        </md-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
