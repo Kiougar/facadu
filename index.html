@@ -11,7 +11,7 @@
     <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="isArrowToggled()">
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <a href="/"><md-icon md-svg-src="menu"></md-icon></a>
+                <a href="/"><md-icon md-svg-src="md-menu"></md-icon></a>
                 <span flex></span>
                 <h2><span>Facadu</span></h2>
                 <span flex></span>
@@ -26,14 +26,16 @@
     <div layout="column" flex>
         <md-toolbar layout="row">
             <div class="md-toolbar-tools">
-                <md-button ng-click="toggleSidenav('left')" ng-class="{'toggled': isArrowToggled()}" class="md-icon-button toggle-sidenav" aria-label="Menu">
-                    <md-icon md-svg-src="tabs-arrow"></md-icon>
+                <md-button class="md-icon-button toggle-sidenav" ng-class="{'toggled': isArrowToggled()}"
+                           ng-click="toggleSidenav('left')" aria-label="Menu">
+                    <md-icon md-svg-src="md-tabs-arrow"></md-icon>
                 </md-button>
                 <span flex></span>
                 <h1><span>Hello World</span></h1>
                 <span flex></span>
-                <md-button class="md-icon-button" aria-label="More">
-                    <md-icon md-svg-src="tabs-arrow"></md-icon>
+                <md-button class="md-icon-button toggle-more" ng-class="{'toggled': isMoreToggled()}"
+                           ng-click="toggleMore()" aria-label="More">
+                    <md-icon md-svg-src="md-toggle-arrow"></md-icon>
                 </md-button>
             </div>
         </md-toolbar>

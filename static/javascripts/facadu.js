@@ -41,8 +41,15 @@
         {label: 'Chat', url: '/ct', template: 'construction.html'},
         {label: 'Help', url: '/hp', template: 'construction.html'}
     ]);
-    app.controller('AppCtrl', ['MENU', '$scope', '$mdMedia', '$mdSidenav', '$rootScope', '$location',
-        function (MENU, $scope, $mdMedia, $mdSidenav, $rootScope, $location) {
+    app.constant('MORE', [
+        {name: 'Logout'},
+        {name: 'About'},
+        {name: 'Print'},
+        {name: 'Export'}
+    ]);
+    app.controller('AppCtrl', ['MENU', '$scope', '$mdMedia', '$mdSidenav', '$rootScope', '$location', '$mdBottomSheet',
+        '$mdUtil',
+        function (MENU, $scope, $mdMedia, $mdSidenav, $rootScope, $location, $mdBottomSheet, $mdUtil) {
             $scope.paths = app.paths;
             $scope.menuItems = MENU;
             $rootScope.$on('$routeChangeSuccess', function ($event) {
@@ -59,6 +66,7 @@
             });
             $scope.$location = $location;
             $scope.shouldLockOpen = true;
+            $scope.moreOpen = false;
             $scope.toggleSidenav = function (menuId) {
                 if (!$mdMedia('gt-lg')) {
                     $mdSidenav(menuId).toggle();
@@ -66,10 +74,34 @@
                     $scope.shouldLockOpen = !$scope.shouldLockOpen;
                 }
             };
+            $scope.toggleMore = function($event) {
+                $scope.moreOpen = !$scope.moreOpen;
+                var options = {
+                    templateUrl: app.paths.templates + 'moreSheet.html',
+                    controller: 'MoreSheetCtrl',
+                    targetEvent: $event
+                };
+                $mdBottomSheet
+                    .show(options)
+                    .then(function (clickedItem) {
+                        console.log(clickedItem.name + ' clicked!');
+                        $scope.moreOpen = !$scope.moreOpen;
+                    });
+            };
             $scope.isArrowToggled = function () {
                 return $scope.shouldLockOpen && $mdMedia('gt-lg');
             };
+            $scope.isMoreToggled = function () {
+                return $scope.moreOpen;
+            };
         }]);
+    app.controller('MoreSheetCtrl', function (MORE, $scope, $mdBottomSheet) {
+        $scope.moreItems = MORE;
+        $scope.moreItemClick = function (index) {
+            var clickedItem = $scope.moreItems[index];
+            $mdBottomSheet.hide(clickedItem);
+        };
+    });
     app.controller('CalendarCtrl', function ($scope, $compile) {
         $scope.clickedEventBadge = function ($event, day) {
             console.log('clicked badge');
