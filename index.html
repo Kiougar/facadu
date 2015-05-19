@@ -33,9 +33,12 @@
                 <span flex></span>
                 <h1><span>Hello World</span></h1>
                 <span flex></span>
-                <md-button class="md-icon-button toggle-more" ng-class="{'toggled': isMoreToggled()}"
-                           ng-click="toggleMore()" aria-label="More">
-                    <md-icon md-svg-src="md-toggle-arrow"></md-icon>
+                <!--<md-button class="md-icon-button toggle-more" ng-class="{'toggled': isMoreToggled()}"-->
+                           <!--ng-click="toggleMore()" aria-label="More">-->
+                    <!--<md-icon md-svg-src="md-toggle-arrow"></md-icon>-->
+                <!--</md-button>-->
+                <md-button class="md-icon-button" aria-label="More">
+                    <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
                 </md-button>
             </div>
         </md-toolbar>
@@ -52,6 +55,7 @@
     <script type="text/javascript" src="static/bower_components/angular-material/angular-material.min.js"></script>
     <!-- Application JS file -->
     <script type="text/javascript" src="static/javascripts/facadu.js"></script>
+    <script type="text/javascript" src="static/javascripts/facaduAssets.js"></script>
     <script type="text/javascript" src="static/javascripts/facaduDirectives.js"></script>
   </body>
 </html>
