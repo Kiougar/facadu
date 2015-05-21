@@ -226,3 +226,22 @@ md-backdrop, .md-dialog-container { position: fixed !important;}
     left: 1px;
 }
 /* end of calendar bubble styles */
+
+/*empty quick edit start*/
+
+.quickEditEmpty {
+    height: auto;
+    width: auto;
+    min-height: 150px;
+    max-height: 300px;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+/*#quickEditContent > form > table,tr,td {
+    margin: 10px;
+    padding: 5px;
+    border: 2px solid #888888;
+}*/
+
+/*empty quick edit end*/
