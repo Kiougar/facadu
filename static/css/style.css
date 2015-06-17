@@ -12,6 +12,29 @@ md-list .md-button {
 /* backdrop fix */
 md-backdrop, .md-dialog-container { position: fixed !important;}
 
+#fab-content {
+    position: absolute;
+    top: -2px;
+    right: 0;
+    z-index: 1000;
+}
+
+.md-fab-action-item md-icon, md-fab-trigger md-icon {
+    color: #000 !important;
+}
+
+.md-fab:hover, .md-fab.md-focused /*, md-fab-speed-dial.md-is-open md-fab-trigger > .md-fab */{
+    background-color: #000 !important;
+}
+
+.md-fab:hover md-icon, .md-fab.md-focused md-icon {
+    color: #fff !important;
+}
+
+.md-sidenav-left .md-button.active {
+    background-color: rgba(158,158,158,0.2);
+}
+
 .toggle-sidenav md-icon, .toggle-more md-icon {
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
@@ -245,4 +268,31 @@ md-backdrop, .md-dialog-container { position: fixed !important;}
     border: 2px solid #888888;
 }*/
 
+/* end of calendar bubble styles */
+
+/*empty quick edit start*/
+
+.quickEditEmpty {
+    height: auto;
+    width: auto;
+    min-height: 150px;
+    max-height: 300px;
+    min-width: 300px;
+    max-width: 600px;
+
+}
+
+/*#quickEditContent > form > table,tr,td {
+    margin: 10px;
+    padding: 5px;
+    border: 2px solid #888888;
+}*/
+
 /*empty quick edit end*/
+
+/* Print styles */
+@media print {
+    md-sidenav, .content-toolbar, #fab-content {
+        display: none !important;
+    }
+}

@@ -7,7 +7,7 @@ Family Calendar Educational Project
 *NOTE: Requires [Node.js](http://nodejs.org/).*
 
 * Fork this repository.
-* Clone repository `$ git clone git@github.com:<your username>/djng-boilerplate.git`
+* Clone repository `$ git clone git@github.com:<your username>/facadu.git`
 * (Optional) Add "./node_modules/.bin/" to $PATH so you can run local packages from project root
 * (Optional) Install Express globally `$ npm install express -g`
 * Install node_modules `$ npm install`

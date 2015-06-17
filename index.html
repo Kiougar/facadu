@@ -3,9 +3,9 @@
     <base href="/index.html" />
     <link type="text/css" rel="stylesheet" href="static/bower_components/angular-material/angular-material.min.css">
     <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="static/css/style.css">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
-
   </head>
   <body layout="row" ng-controller="AppCtrl" ng-cloak>
     <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="isArrowToggled()">
@@ -18,7 +18,7 @@
             </div>
         </md-toolbar>
         <md-content>
-            <md-button ng-repeat="menu in menuItems" ng-href="{{menu.url}}">
+            <md-button ng-repeat="menu in menuItems" ng-href="{{menu.url}}" ng-class="{'active' : currentMenu == menu}">
                 {{ menu.label }}
             </md-button>
         </md-content>
@@ -31,20 +31,40 @@
                     <md-icon md-svg-src="md-tabs-arrow"></md-icon>
                 </md-button>
                 <span flex></span>
-                <h1><span>Hello World</span></h1>
+                <h1><span>{{ currentMenu.label }}</span></h1>
                 <span flex></span>
-                <!--<md-button class="md-icon-button toggle-more" ng-class="{'toggled': isMoreToggled()}"-->
-                           <!--ng-click="toggleMore()" aria-label="More">-->
-                    <!--<md-icon md-svg-src="md-toggle-arrow"></md-icon>-->
-                <!--</md-button>-->
-                <md-button class="md-icon-button" aria-label="More">
-                    <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
-                </md-button>
             </div>
         </md-toolbar>
         <div layout="column" layout-padding flex id="content">
-            <div ng-include="paths.templates + 'toolbar.html'"></div>
+            <div ng-include="paths.templates + 'toolbar.html'" class="content-toolbar"></div>
             <div layout-padding ng-view></div>
+        </div>
+        <div id="fab-content">
+            <md-fab-speed-dial md-direction="left" class="md-scale">
+                <md-fab-trigger>
+                    <a ng-href="/ep">
+                        <md-button aria-label="menu" class="md-fab md-raised">
+                            <!--<md-icon md-svg-src="img/icons/menu.svg"></md-icon>-->
+                            <md-icon md-font-icon="material-icons">person</md-icon>
+                        </md-button>
+                    </a>
+                </md-fab-trigger>
+                <md-fab-actions>
+                    <!-- Using ng-repeat inside md-fab-actions does not hide generated items -->
+                    <!--<md-button ng-repeat="item in moreItems" aria-label="{{item.label}}" class="md-fab md-raised md-mini">-->
+                        <!--<md-icon md-svg-src="img/icons/twitter.svg"></md-icon>-->
+                        <!--<md-icon md-font-icon="material-icons">{{item.ligature}}</md-icon>-->
+                    <!--</md-button>-->
+                    <md-button aria-label="logout" class="md-fab md-raised md-mini">
+                        <!--<md-icon md-svg-src="img/icons/facebook.svg"></md-icon>-->
+                        <md-icon md-font-icon="material-icons">exit_to_app</md-icon>
+                    </md-button>
+                    <md-button aria-label="print" class="md-fab md-raised md-mini" ng-click="doPrint()">
+                        <!--<md-icon md-svg-src="img/icons/hangout.svg"></md-icon>-->
+                        <md-icon md-font-icon="material-icons">print</md-icon>
+                    </md-button>
+                </md-fab-actions>
+            </md-fab-speed-dial>
         </div>
     </div>
     <!-- Angular Material Dependencies -->
