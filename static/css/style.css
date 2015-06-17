@@ -236,6 +236,7 @@ md-backdrop, .md-dialog-container { position: fixed !important;}
     max-height: 300px;
     min-width: 300px;
     max-width: 600px;
+    background-color:white;
 
 }
 
