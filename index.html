@@ -33,39 +33,33 @@
                 <span flex></span>
                 <h1><span>{{ currentMenu.label }}</span></h1>
                 <span flex></span>
+                <md-fab-speed-dial md-direction="left" class="md-scale">
+                    <md-fab-trigger>
+                        <a ng-href="/ep">
+                            <md-button aria-label="menu" class="md-fab md-raised">
+                                <md-icon md-font-icon="material-icons">person</md-icon>
+                            </md-button>
+                        </a>
+                    </md-fab-trigger>
+                    <md-fab-actions>
+                        <!-- Using ng-repeat inside md-fab-actions does not hide generated items -->
+                        <!--<md-button ng-repeat="item in moreItems" aria-label="{{item.label}}" class="md-fab md-raised md-mini">-->
+                            <!--<md-icon md-svg-src="img/icons/twitter.svg"></md-icon>-->
+                            <!--<md-icon md-font-icon="material-icons">{{item.ligature}}</md-icon>-->
+                        <!--</md-button>-->
+                        <md-button aria-label="logout" class="md-fab md-raised md-mini">
+                            <md-icon>exit_to_app</md-icon>
+                        </md-button>
+                        <md-button aria-label="print" class="md-fab md-raised md-mini" ng-click="doPrint()">
+                            <md-icon>print</md-icon>
+                        </md-button>
+                    </md-fab-actions>
+                </md-fab-speed-dial>
             </div>
         </md-toolbar>
-        <div layout="column" layout-padding flex id="content">
-            <div ng-include="paths.templates + 'toolbar.html'" class="content-toolbar"></div>
+        <md-content class="md-padding" layout="column" id="content">
             <div layout-padding ng-view></div>
-        </div>
-        <div id="fab-content">
-            <md-fab-speed-dial md-direction="left" class="md-scale">
-                <md-fab-trigger>
-                    <a ng-href="/ep">
-                        <md-button aria-label="menu" class="md-fab md-raised">
-                            <!--<md-icon md-svg-src="img/icons/menu.svg"></md-icon>-->
-                            <md-icon md-font-icon="material-icons">person</md-icon>
-                        </md-button>
-                    </a>
-                </md-fab-trigger>
-                <md-fab-actions>
-                    <!-- Using ng-repeat inside md-fab-actions does not hide generated items -->
-                    <!--<md-button ng-repeat="item in moreItems" aria-label="{{item.label}}" class="md-fab md-raised md-mini">-->
-                        <!--<md-icon md-svg-src="img/icons/twitter.svg"></md-icon>-->
-                        <!--<md-icon md-font-icon="material-icons">{{item.ligature}}</md-icon>-->
-                    <!--</md-button>-->
-                    <md-button aria-label="logout" class="md-fab md-raised md-mini">
-                        <!--<md-icon md-svg-src="img/icons/facebook.svg"></md-icon>-->
-                        <md-icon md-font-icon="material-icons">exit_to_app</md-icon>
-                    </md-button>
-                    <md-button aria-label="print" class="md-fab md-raised md-mini" ng-click="doPrint()">
-                        <!--<md-icon md-svg-src="img/icons/hangout.svg"></md-icon>-->
-                        <md-icon md-font-icon="material-icons">print</md-icon>
-                    </md-button>
-                </md-fab-actions>
-            </md-fab-speed-dial>
-        </div>
+        </md-content>
     </div>
     <!-- Angular Material Dependencies -->
     <script type="text/javascript" src="static/bower_components/angular/angular.min.js"></script>

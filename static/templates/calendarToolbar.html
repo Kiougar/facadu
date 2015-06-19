@@ -1,0 +1,24 @@
+<md-toolbar class="cal-toolbar md-primary md-hue-1">
+    <div class="md-toolbar-tools" layout="row">
+        <section>
+            <md-button class="md-raised md-hue-1">CREATE</md-button>
+        </section>
+        <section layout="row" layout-align="end center" flex>
+            <form name="searchForm" novalidate>
+                <md-input-container md-no-float class="search">
+                    <md-icon>search</md-icon>
+                    <input type="text" ng-model="calSearch" aria-label="search"/>
+                </md-input-container>
+            </form>
+            <md-select ng-model="calMonth" aria-label="select month">
+                <md-option ng-repeat="month in months">{{month}}</md-option>
+            </md-select>
+            <md-button class="previous md-icon-button" title="Previous">
+                <md-icon>chevron_left</md-icon>
+            </md-button>
+            <md-button class="next md-icon-button" title="Next">
+                <md-icon>chevron_right</md-icon>
+            </md-button>
+        </section>
+    </div>
+</md-toolbar>

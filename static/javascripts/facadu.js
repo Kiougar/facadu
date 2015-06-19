@@ -7,10 +7,14 @@
     app.paths.root = '/';
     app.paths.templates = app.paths.root + 'static/templates/';
 
-    app.config(function ($mdThemingProvider, $routeProvider, $locationProvider, MENU) {
+    app.config(function ($mdThemingProvider, $mdIconProvider, $routeProvider, $locationProvider, MENU) {
         //$mdThemingProvider.theme('default')
         //    .primaryPalette('deep-purple')
         //    .accentPalette('amber');
+
+        $mdIconProvider
+            .iconSet('social', 'img/icons/sets/social-icons.svg', 24)
+            .defaultIconSet('img/icons/sets/core-icons.svg', 24);
 
         $routeProvider
             .when('/', {
@@ -49,6 +53,9 @@
     ]);
     app.controller('AppCtrl', ['MENU', 'MORE', '$scope', '$timeout', '$mdMedia', '$mdSidenav', '$rootScope','$location',
         function (MENU, MORE, $scope, $timeout, $mdMedia, $mdSidenav, $rootScope, $location) {
+            $scope.prof = {
+                isOpen : false
+            };
             $scope.paths = app.paths;
             $scope.menuItems = MENU;
             $scope.moreItems = MORE;
@@ -86,12 +93,16 @@
         $scope.clickedEventBadge = function ($event, day) {
             console.log('clicked badge');
         };
-        var clickedDayScope = $scope.$new(true);
+        var clickedDayScope = $scope.$new();
         $scope.clickedDay = function ($event, day) {
             if (day.events.length === 0) {
                 // This is an empty date, update clickedDayScope to move the bubble if it exists. Else, compile it.
                 clickedDayScope.pageX = $event.pageX;
                 clickedDayScope.pageY = $event.pageY;
+                $scope.newEvent = {
+                    from: new Date(2015, 6, day.label),
+                    title: 'Test Title'
+                };
                 var bub = document.getElementById('cal-bubble');
                 if (!bub) {
                     bub = angular.element('<prong-bubble><quick-edit-bubble></quick-edit-bubble></prong-bubble>');
@@ -104,6 +115,7 @@
             }
         };
         $scope.weekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+        $scope.months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         $scope.monthWeeks = [];
         var eventsList = [{title: 'Event title!'}, {title: 'Event2 title!'}, {title: 'Event3 has a pretty long title!'}];
         var randomStartingDay = Math.floor(Math.random() * (4 + 1)) + 25; // random integer in [25, 29]
@@ -116,5 +128,5 @@
                 });
             }
         }
-    })
+    });
 })();

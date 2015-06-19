@@ -12,11 +12,8 @@ md-list .md-button {
 /* backdrop fix */
 md-backdrop, .md-dialog-container { position: fixed !important;}
 
-#fab-content {
-    position: absolute;
-    top: -2px;
-    right: 0;
-    z-index: 1000;
+md-fab-actions {
+    height: auto !important;
 }
 
 .md-fab-action-item md-icon, md-fab-trigger md-icon {
@@ -189,6 +186,22 @@ md-backdrop, .md-dialog-container { position: fixed !important;}
     border: 1px solid #fff;
 }
 
+.cal-toolbar form {
+    margin: 0 40px 0 0;
+
+}
+.cal-toolbar md-input-container.search {
+    padding: 0;
+}
+
+.cal-toolbar md-input-container.search md-icon, .cal-toolbar md-input-container.search input{
+    color: #fff;
+    border-color: #fff;
+}
+
+.md-button.next, .md-button.previous {
+    margin: 0;
+}
 /** Calendar bubble styles */
 #cal-bubble {
     position: absolute;
@@ -253,13 +266,12 @@ md-backdrop, .md-dialog-container { position: fixed !important;}
 /*empty quick edit start*/
 
 .quickEditEmpty {
-    height: auto;
-    width: auto;
-    min-height: 150px;
-    max-height: 300px;
-    min-width: 300px;
-    max-width: 600px;
-
+    /*height: auto;*/
+    /*width: auto;*/
+    /*min-height: 150px;*/
+    /*max-height: 300px;*/
+    min-width: 500px;
+    /*max-width: 600px;*/
 }
 
 /*#quickEditContent > form > table,tr,td {
@@ -267,32 +279,10 @@ md-backdrop, .md-dialog-container { position: fixed !important;}
     padding: 5px;
     border: 2px solid #888888;
 }*/
-
-/* end of calendar bubble styles */
-
-/*empty quick edit start*/
-
-.quickEditEmpty {
-    height: auto;
-    width: auto;
-    min-height: 150px;
-    max-height: 300px;
-    min-width: 300px;
-    max-width: 600px;
-
-}
-
-/*#quickEditContent > form > table,tr,td {
-    margin: 10px;
-    padding: 5px;
-    border: 2px solid #888888;
-}*/
-
-/*empty quick edit end*/
 
 /* Print styles */
 @media print {
-    md-sidenav, .content-toolbar, #fab-content {
+    md-sidenav, .content-toolbar, md-fab-speed-dial {
         display: none !important;
     }
 }

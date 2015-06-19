@@ -1,28 +1,27 @@
-<div class="quickEditEmpty">
-    <div id="quickEditHeader">
-        <h3>Quick Edit Menu :</h3>
-    </div>
-    <div id="quickEditContent">
-        <form>
-            <table>
-                <tr>
-                    <td>When :</td>
-                    <td><input type="date"></td>
-                </tr>
-                <tr>
-                    <td>Title :</td>
-                    <td><textarea></textarea></td>
-                </tr>
-                <tr>
-                    <td>Description :</td>
-                    <td><textarea></textarea></td>
-                </tr>
-                <tr>
-                    <td><input type="submit"></td>
-                    <td><input type="reset"></td>
-                </tr>
-            </table>
+<div class="quickEditEmpty" layout="column">
+    <md-toolbar class="md-primary">
+        <h1 class="md-toolbar-tools">Quick edit event</h1>
+    </md-toolbar>
+    <md-content layout-padding>
+        <form name="quickEditForm">
+            <div layout>
+                <md-input-container>
+                    <label>From</label>
+                    <input type="datetime-local" ng-model="newEvent.from"/>
+                </md-input-container>
+                <md-input-container>
+                    <label>To</label>
+                    <input type="datetime-local" ng-model="newEvent.from"/>
+                </md-input-container>
+            </div>
+            <md-input-container>
+                <label>Title</label>
+                <input ng-model="newEvent.title"/>
+            </md-input-container>
+            <md-input-container>
+                <label>Description</label>
+                <textarea ng-model="newEvent.description" maxlength="150"></textarea>
+            </md-input-container>
         </form>
-    </div>
-
+    </md-content>
 </div>
