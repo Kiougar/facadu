@@ -1,14 +1,14 @@
-<div ng-include="paths.templates + 'calendarToolbar.html'" class="content-toolbar"></div>
+<div ng-include="app.paths.templates + 'calendarToolbar.html'" class="content-toolbar"></div>
 <div layout-padding>
     <div class="cal-row cal-row-head">
-        <div class="cal-cell" ng-repeat="day in weekDays">{{day}}</div>
+        <div class="cal-cell" ng-repeat="day in vm.weekDays">{{day}}</div>
     </div>
     <div class="cal-month-container">
-        <div ng-repeat="week in monthWeeks">
+        <div ng-repeat="week in vm.monthWeeks">
             <div class="cal-row cal-row-body">
                 <div ng-repeat="day in week.days" class="cal-cell">
-                    <div class="cal-month-day" ng-click="clickedDay($event, day)">
-                        <md-button ng-click="clickedEventBadge($event, day)" class="day-events-num md-fab md-accent" ng-hide="day.events.length === 0">
+                    <div class="cal-month-day" ng-click="vm.clickedDay($event, day)">
+                        <md-button ng-click="vm.clickedEventBadge($event, day)" class="day-events-num md-fab md-accent" ng-hide="day.events.length === 0">
                             {{day.events.length}}
                         </md-button>
                         <span class="day-label">{{day.label}}</span>

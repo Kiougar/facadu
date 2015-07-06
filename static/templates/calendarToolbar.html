@@ -10,8 +10,8 @@
                     <input type="text" ng-model="calSearch" aria-label="search"/>
                 </md-input-container>
             </form>
-            <md-select ng-model="calMonth" aria-label="select month">
-                <md-option ng-repeat="month in months">{{month}}</md-option>
+            <md-select ng-model="vm.month" aria-label="select month">
+                <md-option ng-repeat="month in vm.months" value="{{$index}}">{{month}}</md-option>
             </md-select>
             <md-button class="previous md-icon-button" title="Previous">
                 <md-icon>chevron_left</md-icon>

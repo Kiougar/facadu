@@ -1,27 +1,36 @@
 <div class="quickEditEmpty" layout="column">
     <md-toolbar class="md-primary">
-        <h1 class="md-toolbar-tools">Quick edit event</h1>
+        <h1 class="md-toolbar-tools">{{vm.newEvent.from | date: 'shortDate' }}</h1>
     </md-toolbar>
     <md-content layout-padding>
-        <form name="quickEditForm">
-            <div layout>
-                <md-input-container>
-                    <label>From</label>
-                    <input type="datetime-local" ng-model="newEvent.from"/>
-                </md-input-container>
-                <md-input-container>
-                    <label>To</label>
-                    <input type="datetime-local" ng-model="newEvent.from"/>
-                </md-input-container>
-            </div>
+        <form name="vm.quickEditForm" novalidate ng-submit="vm.quickEditSubmitted()">
+            <!--<div layout>-->
+                <!--<md-input-container>-->
+                    <!--<label>From</label>-->
+                    <!--<input type="datetime-local" ng-model="newEvent.from"/>-->
+                <!--</md-input-container>-->
+                <!--<md-input-container>-->
+                    <!--<label>To</label>-->
+                    <!--<input type="datetime-local" ng-model="newEvent.from"/>-->
+                <!--</md-input-container>-->
+            <!--</div>-->
+            <!--<div>{{newEvent.from | date: 'shortDate' }}</div>-->
             <md-input-container>
                 <label>Title</label>
-                <input ng-model="newEvent.title"/>
+                <input md-maxlength="40" type="text" name="title" ng-model="vm.newEvent.title" required/>
+                <div ng-messages="vm.quickEditForm.title.$error">
+                    <div ng-message="required">This is required.</div>
+                    <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+                </div>
             </md-input-container>
             <md-input-container>
-                <label>Description</label>
-                <textarea ng-model="newEvent.description" maxlength="150"></textarea>
+                <label>Description (optional)</label>
+                <textarea name="description" ng-model="vm.newEvent.description" md-maxlength="150"></textarea>
+                <div ng-messages="vm.quickEditForm.description.$error">
+                    <div ng-message="md-maxlength">Description has to be less than 150 characters long.</div>
+                </div>
             </md-input-container>
+            <md-button class="md-primary">Create</md-button>
         </form>
     </md-content>
 </div>

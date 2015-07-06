@@ -1,4 +1,4 @@
-<html lang="en" ng-app="FacaduApp">
+<html lang="en" ng-app="facadu">
   <head>
     <base href="/index.html" />
     <link type="text/css" rel="stylesheet" href="static/bower_components/angular-material/angular-material.min.css">
@@ -7,8 +7,8 @@
     <link type="text/css" rel="stylesheet" href="static/css/style.css">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
   </head>
-  <body layout="row" ng-controller="AppCtrl" ng-cloak>
-    <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="isArrowToggled()">
+  <body layout="row" ng-controller="AppCtrl as app" ng-cloak>
+    <md-sidenav layout="column" class="site-sidenav md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="app.isArrowToggled()">
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <a href="/"><md-icon md-svg-src="md-menu"></md-icon></a>
@@ -18,7 +18,7 @@
             </div>
         </md-toolbar>
         <md-content>
-            <md-button ng-repeat="menu in menuItems" ng-href="{{menu.url}}" ng-class="{'active' : currentMenu == menu}">
+            <md-button ng-repeat="menu in app.menuItems" ng-href="{{menu.url}}" ng-class="{'active' : app.currentMenu == menu}">
                 {{ menu.label }}
             </md-button>
         </md-content>
@@ -26,12 +26,12 @@
     <div layout="column" flex>
         <md-toolbar layout="row">
             <div class="md-toolbar-tools">
-                <md-button class="md-icon-button toggle-sidenav" ng-class="{'toggled': isArrowToggled()}"
-                           ng-click="toggleSidenav('left')" aria-label="Menu">
+                <md-button class="md-icon-button toggle-sidenav" ng-class="{'toggled': app.isArrowToggled()}"
+                           ng-click="app.toggleSidenav('left')" aria-label="Menu">
                     <md-icon md-svg-src="md-tabs-arrow"></md-icon>
                 </md-button>
                 <span flex></span>
-                <h1><span>{{ currentMenu.label }}</span></h1>
+                <h1><span>{{ app.currentMenu.label }}</span></h1>
                 <span flex></span>
                 <md-fab-speed-dial md-direction="left" class="md-scale">
                     <md-fab-trigger>
@@ -50,7 +50,7 @@
                         <md-button aria-label="logout" class="md-fab md-raised md-mini">
                             <md-icon>exit_to_app</md-icon>
                         </md-button>
-                        <md-button aria-label="print" class="md-fab md-raised md-mini" ng-click="doPrint()">
+                        <md-button aria-label="print" class="md-fab md-raised md-mini" ng-click="app.doPrint()">
                             <md-icon>print</md-icon>
                         </md-button>
                     </md-fab-actions>
@@ -66,10 +66,17 @@
     <script type="text/javascript" src="static/bower_components/angular-animate/angular-animate.min.js"></script>
     <script type="text/javascript" src="static/bower_components/angular-aria/angular-aria.min.js"></script>
     <script type="text/javascript" src="static/bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="static/bower_components/angular-messages/angular-messages.min.js"></script>
     <script type="text/javascript" src="static/bower_components/angular-material/angular-material.min.js"></script>
     <!-- Application JS file -->
-    <script type="text/javascript" src="static/javascripts/facadu.js"></script>
-    <script type="text/javascript" src="static/javascripts/facaduAssets.js"></script>
-    <script type="text/javascript" src="static/javascripts/facaduDirectives.js"></script>
+    <script type="text/javascript" src="static/javascripts/facadu.core.js"></script>
+    <script type="text/javascript" src="static/javascripts/facadu.core.directives.js"></script>
+    <script type="text/javascript" src="static/javascripts/facadu.module.js"></script>
+    <script type="text/javascript" src="static/javascripts/facadu.config.js"></script>
+    <script type="text/javascript" src="static/javascripts/facadu.assets.js"></script>
+    <script type="text/javascript" src="static/javascripts/calendar.directives.js"></script>
+    <script type="text/javascript" src="static/javascripts/default.controller.js"></script>
+    <script type="text/javascript" src="static/javascripts/calendar.controller.js"></script>
+    <script type="text/javascript" src="static/javascripts/calendar.service.js"></script>
   </body>
 </html>

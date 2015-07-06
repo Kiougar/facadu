@@ -1,9 +1,9 @@
-<md-whiteframe id="cal-bubble" class="cal-bubble md-whiteframe-z1" tabindex="-1">
+<md-whiteframe id="cal-bubble" class="cal-bubble md-whiteframe-z5" tabindex="-1">
     <div class="bubble-main">
-        <md-button class="md-icon-button close" ng-click="closeFn()" aria-label="close">
+        <md-content ng-transclude></md-content>
+        <md-button class="md-icon-button close" ng-click="vm.closeFn()" type="button" aria-label="close">
             <md-icon md-svg-src="md-close"></md-icon>
         </md-button>
-        <md-content ng-transclude></md-content>
         <div class="prong bottom-prong">
             <div class="prong-dk"></div>
             <div class="prong-lt"></div>
