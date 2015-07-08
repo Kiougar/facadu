@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "homepage": "https://github.com/Kiougar/facadu",
   "authors": [
-    "Georgios Tzourmpakis <kiougar@gmail.com>"
+    "Georgios Tzourmpakis <kiougar@gmail.com>",
+    "George Delis <gdelis1989@gmail.com>"
   ],
   "description": "Family Calendar Educational Project",
   "license": "MIT",
@@ -17,7 +18,11 @@
   ],
   "dependencies": {
     "angular-material": "~0.10.0",
-    "angular-route": "~1.4.1",
-    "angular-messages": "~1.4.1"
+    "angular-route": "~1.4.2",
+    "angular-messages": "~1.4.2",
+    "angular-datepicker": "~1.0.12"
+  },
+  "resolutions": {
+    "angular": "1.4.2"
   }
 }

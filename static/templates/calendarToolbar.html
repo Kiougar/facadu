@@ -7,16 +7,20 @@
             <form name="searchForm" novalidate>
                 <md-input-container md-no-float class="search">
                     <md-icon>search</md-icon>
-                    <input type="text" ng-model="calSearch" aria-label="search"/>
+                    <input type="text" ng-model="vm.calSearch" aria-label="search"/>
                 </md-input-container>
             </form>
-            <md-select ng-model="vm.month" aria-label="select month">
-                <md-option ng-repeat="month in vm.months" value="{{$index}}">{{month}}</md-option>
-            </md-select>
-            <md-button class="previous md-icon-button" title="Previous">
+            <!--<md-select ng-model="vm.month" aria-label="select month">-->
+                <!--<md-option ng-repeat="month in vm.months" value="{{$index}}">{{month}}</md-option>-->
+            <!--</md-select>-->
+            <md-button class="previous md-icon-button" title="Previous" ng-click="vm.prevMonth()">
                 <md-icon>chevron_left</md-icon>
             </md-button>
-            <md-button class="next md-icon-button" title="Next">
+            <div style="position: relative">
+                <md-button class="md-raised md-hue-1" ng-click="pickerToggle = !pickerToggle">{{(vm.picker|date : 'MMM yyyy')}}</md-button>
+                <div ng-if="pickerToggle" class="picker-container md-whiteframe-z5"><div date-picker="vm.picker" min-view="month" max-view="year"></div></div>
+            </div>
+            <md-button class="next md-icon-button" title="Next" ng-click="vm.nextMonth()">
                 <md-icon>chevron_right</md-icon>
             </md-button>
         </section>

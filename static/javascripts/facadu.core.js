@@ -4,7 +4,8 @@
     angular.module('facadu.core', [
         'ngMaterial',
         'ngMessages',
-        'ngRoute'
+        'ngRoute',
+        'datePicker'
     ]);
 
 })();
