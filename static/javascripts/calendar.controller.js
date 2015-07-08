@@ -17,9 +17,9 @@
 
         vm.activate = activate;
         vm.title = 'CalendarCtrl';
+        vm.displaymode = 'month';
         vm.weekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
         vm.months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-        vm.monthWeeks = [];
         vm.prevMonth = prevMonth;
         vm.nextMonth = nextMonth;
         vm.clickedDay = clickedDay;
@@ -34,17 +34,30 @@
 
         ////////////////
 
-        function setFirstDayOfWeek(day) {
-            if (angular.isNumber(day) && day > 0 && day < 7) {
-                var x = vm.weekDays.splice(day, 7 - day);
-                vm.weekDays = x.concat(vm.weekDays);
+        function activate() {
+
+            var calHours = [];
+            for (var i=0;i<24*7;i++) {
+                calHours.push('hour ' + i);
             }
+            vm.calHours = calHours;
+            setDayHours();
+
+
+            // refreshEvents will run at least once because of ng-model in the date picker directive
+            $scope.$watch('vm.picker', refreshEvents);
         }
 
+        function setDayHours() {
+            var hours = [];
 
-        function activate() {
-            // will run at least once because of ng-model
-            $scope.$watch('vm.picker', refreshEvents);
+            for (var i=0;i<24;i++) {
+                hours.push({
+                    label: ('0'+i).slice(-2) + ':00'
+                });
+            }
+
+            vm.dayHours = hours;
         }
 
         function refreshEvents() {

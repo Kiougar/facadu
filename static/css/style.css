@@ -149,6 +149,14 @@ md-fab-actions {
     transition: opacity linear 0.5s;
 }
 
+.cal-week-days {
+    margin-left: 50px;
+}
+
+.cal-week-hours {
+    width: 50px;
+}
+
 .animate-repeat.ng-leave.ng-leave-active,
 .animate-repeat.ng-move,
 .animate-repeat.ng-enter {
@@ -169,9 +177,21 @@ md-fab-actions {
     padding: 0;
 }
 
-.cal-toolbar md-input-container.search md-icon, .cal-toolbar md-input-container.search input{
+.cal-toolbar md-input-container.search md-icon, .cal-toolbar md-input-container.search input {
     color: #fff;
     border-color: #fff;
+}
+
+.btn-group .md-button {
+    margin: 0;
+}
+
+.cal-toolbar .md-button.md-raised[disabled] {
+    color: #e1e1e1;
+}
+
+.btn-group .md-button ~ .md-button {
+    margin-left: -4px;
 }
 
 .md-button.next, .md-button.previous {

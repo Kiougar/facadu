@@ -1,0 +1,28 @@
+<div layout-padding>
+    <md-grid-list class="cal-week-days" md-cols="7" md-row-height="30px" flex>
+        <md-grid-tile ng-repeat="name in vm.weekDays">{{name}}</md-grid-tile>
+    </md-grid-list>
+    <section layout="row">
+        <md-grid-list class="cal-week-hours" md-cols="1" md-row-height="60px" md-gutter="0">
+            <md-grid-tile ng-repeat="hour in vm.dayHours">{{hour.label}}</md-grid-tile>
+        </md-grid-list>
+        <md-grid-list md-cols="7" md-row-height="60px" md-gutter="0" class="cal-month-container" flex>
+            <md-grid-tile ng-repeat="hour in vm.calHours">
+                <div class="cal-month-day" layout="row" layout-align="center end">
+
+                    <div style="width: 100%; height: 20px; background-color: dodgerblue" ng-if="$index < 7">
+                        Dummy event
+                    </div>
+                    <div class="event-list-container">
+                        <md-button ng-repeat="event in day.events | filter: vm.calSearch" class="event-list-item animate-repeat md-fab md-primary" aria-label="event">
+                            <md-tooltip md-direction="top">{{event.title}}</md-tooltip>
+                        </md-button>
+                        <!--<md-button class="event-list-item animate-repeat md-fab md-primary" aria-label="event">-->
+                            <!--<md-tooltip md-direction="top">Dummy event!</md-tooltip>-->
+                        <!--</md-button>-->
+                    </div>
+                </div>
+            </md-grid-tile>
+        </md-grid-list>
+    </section>
+</div>

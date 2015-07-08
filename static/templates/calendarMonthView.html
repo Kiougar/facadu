@@ -1,8 +1,4 @@
-<div ng-include="app.paths.templates + 'calendarToolbar.html'" class="content-toolbar"></div>
 <div layout-padding>
-    <!--<div class="cal-row cal-row-head">-->
-        <!--<div class="cal-cell" ng-repeat="day in vm.weekDays">{{day}}</div>-->
-    <!--</div>-->
     <md-grid-list md-cols="7" md-row-height="30px">
         <md-grid-tile ng-repeat="name in vm.weekDays">{{name}}</md-grid-tile>
     </md-grid-list>

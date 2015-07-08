@@ -1,0 +1,6 @@
+<div ng-include="app.paths.templates + 'calendarToolbar.html'" class="content-toolbar"></div>
+<div ng-switch on="vm.displaymode">
+    <div ng-switch-when="month"><div ng-include="app.paths.templates + 'calendarMonthView.html'"></div></div>
+    <div ng-switch-when="week"><div ng-include="app.paths.templates + 'calendarWeekView.html'"></div></div>
+    <div ng-switch-when="day"><div ng-include="app.paths.templates + 'calendarDayView.html'"></div></div>
+</div>

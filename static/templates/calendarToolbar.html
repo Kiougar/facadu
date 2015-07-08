@@ -13,6 +13,11 @@
             <!--<md-select ng-model="vm.month" aria-label="select month">-->
                 <!--<md-option ng-repeat="month in vm.months" value="{{$index}}">{{month}}</md-option>-->
             <!--</md-select>-->
+            <div class="btn-group">
+                <md-button class="md-raised md-hue-1" ng-disabled="vm.displaymode == 'day'" ng-click="vm.displaymode = 'day'">DAILY</md-button>
+                <md-button class="md-raised md-hue-1" ng-disabled="vm.displaymode == 'week'" ng-click="vm.displaymode = 'week'">WEEKLY</md-button>
+                <md-button class="md-raised md-hue-1" ng-disabled="vm.displaymode == 'month'" ng-click="vm.displaymode = 'month'">MONTHLY</md-button>
+            </div>
             <md-button class="previous md-icon-button" title="Previous" ng-click="vm.prevMonth()">
                 <md-icon>chevron_left</md-icon>
             </md-button>

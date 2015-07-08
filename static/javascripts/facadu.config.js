@@ -6,7 +6,7 @@
     paths.templates = paths.root + 'static/templates/';
 
     var menu = [
-        {label: 'Family Calendar', url: '/fc', template: 'calendarMonthView.html', type: 'calendar'},
+        {label: 'Family Calendar', url: '/fc', template: 'calendar.html', type: 'calendar'},
         {label: 'Personal Calendar', url: '/pc', template: 'calendarMonthView.html', type: 'calendar'},
         {label: 'ToDo list', url: '/tl', template: 'construction.html'},
         {label: 'Shopping list', url: '/sl', template: 'construction.html'},
